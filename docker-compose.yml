@@ -6,4 +6,4 @@ services:
     volumes:
       - ./output:/usr/src/app/output
     environment:
-      - PYTHONUNBUFFERED=1 
+      - PYTHONUNBUFFERED=1
