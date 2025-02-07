@@ -98,7 +98,7 @@ methods_plus_mastery.db looks like
 ![Example Image](./assets/table.png "This is an example image")
 
 ## Unit Tests
-5. To run unit tests:
+To run unit tests:
 ```bash
 pytest src/test.py -v
 ```
