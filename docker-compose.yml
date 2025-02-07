@@ -1,0 +1,9 @@
+services:
+  utc-to-region-analyzer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./output:/usr/src/app/output
+    environment:
+      - PYTHONUNBUFFERED=1 
