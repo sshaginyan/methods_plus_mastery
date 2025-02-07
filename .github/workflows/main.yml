@@ -1,0 +1,48 @@
+name: Run Docker and Commit Output
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed for pushing to the repository
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required for pushing
+
+      # Set up Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Build and run using docker-compose
+      - name: Build and run Docker containers
+        run: |
+          docker-compose up --build
+          
+      # Verify output files exist
+      - name: Check output files
+        run: |
+          if [ ! -d "./output" ]; then
+            echo "Output directory not found!"
+            exit 1
+          fi
+          ls -la ./output
+
+      # Configure Git
+      - name: Setup Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      # Commit and push changes
+      - name: Commit output files
+        run: |
+          git add ./output/
+          git commit -m "Update output files from Docker run" || echo "No changes to commit"
+          git push
