@@ -2,9 +2,13 @@ Hi Marc,
 
 Our last conversation got me thinking about obtaining social media data as well as data de-identification. I want to share with you a hypothetical data pipeline on how to do this.
 
+![Blank diagram](https://github.com/user-attachments/assets/21f5d5f9-f977-4bb6-9cb8-b1149a8bfc8a)
+
+
 ### Browser Automation
 Playwright is an open-source browser automation framework sponsored by Microsoft, primarily designed for end-to-end testing of modern web applications. In addition to its testing capabilities, Playwright is also widely used for web scraping. By interacting with a browser's DOM events API, Playwright can efficiently collect data from web pages, including user interactions, network requests, and dynamic content.
-Our goal is to replicate human traffic as accurately as possible, so all input must be representative of human behavior, not automated or machine-generated actions. We can use technologies like [Xetera/ghost-cursor]([Xetera](https://github.com/Xetera)/**[ghost-cursor](https://github.com/Xetera/ghost-cursor)**) for creating human-like mouse movement and [georgetian3/typoer]([georgetian3](https://github.com/georgetian3)/**[typoer](https://github.com/georgetian3/typoer)**) for mimicking typing on a keyboard with mistakes. 
+Our goal is to replicate human traffic as accurately as possible, so all input must be representative of human behavior, not automated or machine-generated actions. We can use technologies like [Xetera/ghost-cursor]([Xetera](https://github.com/Xetera)/**[ghost-cursor](https://github.com/Xetera/ghost-cursor)**) for creating human-like mouse movement and [georgetian3/typoer]([georgetian3](https://github.com/georgetian3)/**[![Uploading SDV-Logo-Large-Black-Transparent.png…]()
+typoer](https://github.com/georgetian3/typoer)**) for mimicking typing on a keyboard with mistakes. 
 
 ### Prioritizing Links with LLM
 You can use a local LLM to prioritize links on a page that are more likely to be valuable, based on a provided prompt. Crawlers often stop deep crawling when they reach a point of diminishing returns, meaning the value of additional data gathered becomes minimal or irrelevant. This is particularly the case if pages at deeper levels are less likely to provide meaningful or new information.
